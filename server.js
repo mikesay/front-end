@@ -43,6 +43,12 @@ process.argv.forEach(function(val, index, array) {
     }
 });
 
+/* Output request headers */
+app.use((req, res, next) => {
+    console.log(JSON.stringify(req.headers))
+    next()
+})
+
 /* Mount API endpoints */
 app.use(cart);
 app.use(catalogue);
